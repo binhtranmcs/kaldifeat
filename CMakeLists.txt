@@ -32,9 +32,9 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-if (NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14 CACHE STRING "The C++ version to be used.")
-endif()
+set(CMAKE_CXX_STANDARD 17 CACHE STRING "The C++ version to be used.")
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 message(STATUS "C++ Standard version: ${CMAKE_CXX_STANDARD}")
 set(CMAKE_CXX_EXTENSIONS OFF)
 

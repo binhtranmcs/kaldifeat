@@ -10,12 +10,13 @@ execute_process(
 )
 message(STATUS "TORCH_DIR: ${TORCH_DIR}")
 
-list(APPEND CMAKE_PREFIX_PATH "${TORCH_DIR}")
+# list(APPEND CMAKE_PREFIX_PATH "${TORCH_DIR}") # comment this out to find the "correct" Torch
 find_package(Torch REQUIRED)
 
 # set the global CMAKE_CXX_FLAGS so that
 # kaldifeat uses the same ABI flag as PyTorch
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
+message(STATUS "???: ${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
 execute_process(
   COMMAND "${PYTHON_EXECUTABLE}" -c "import torch; print(torch.__version__)"
